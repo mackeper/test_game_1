@@ -1,16 +1,21 @@
 GXX = g++
 
-LINKER_FLAGS = sfml-app -lsfml-graphics -lsfml-window -lsfml-system
+LINKER_FLAGS =-lsfml-graphics -lsfml-window -lsfml-system
 
-SRCS = main.cpp 
+SRCS = Sources/entity.cpp Sources/main.cpp Sources/player.cpp Sources/game.cpp Sources/renderer.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = entity.o main.o player.o game.o renderer.o
 
-CXXFLAGS = -w $(LINKER_FLAGS)
+CXXFLAGS = -std=c++11 -Wall
+
+%.o: Sources/%.cpp
+	$(GXX) -c -$(CXXFLAGS) $< -o $@
+
+%.o: Sources/%.hpp
+	$(GXX) -c -$(CXXFLAGS) $< -o $@
 
 main: $(OBJS)
-	$(GXX) -c $(SRCS)
-	$(GXX) main.o -o $(LINKER_FLAGS)
+	$(GXX) -o game $(OBJS) $(LINKER_FLAGS)
 
 clean:
 	rm -f *o
