@@ -1,20 +1,24 @@
 /**
    entity.cpp
    
-   @author 
-   @version 
+   @author Marcus Östling 
+   @version 0
    */
 
 #include "entity.hpp"
 
-sf::Shape* Entity::getShape() {
+Entity::~Entity() {
+    delete shape;
+}
+
+sf::Shape* Entity::GetShape() {
         return shape;
     }
 
-int Entity::getX() {
+int Entity::GetX() {
         return x;
     }
 
-int Entity::getY() {
+int Entity::GetY() {
         return y;
     }
