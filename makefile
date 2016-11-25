@@ -2,9 +2,9 @@ GXX = g++
 
 LINKER_FLAGS =-lsfml-graphics -lsfml-window -lsfml-system
 
-SRCS = Sources/entity.cpp Sources/main.cpp Sources/player.cpp Sources/game.cpp Sources/renderer.cpp
+SRCS = Sources/entity.cpp Sources/main.cpp Sources/player.cpp Sources/game.cpp Sources/renderer.cpp Sources/controller.cpp
 
-OBJS = entity.o main.o player.o game.o renderer.o
+OBJS = entity.o main.o player.o game.o renderer.o controller.o
 
 CXXFLAGS = -std=c++11 -Wall
 
