@@ -17,6 +17,10 @@ public:
     sf::Shape* GetShape();
     int GetX();
     int GetY();
+    void Up();
+    void Down();
+    void Left();
+    void Right();
 };
 
 
