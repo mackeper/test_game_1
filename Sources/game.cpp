@@ -7,13 +7,16 @@
 
 #include "player.hpp"
 #include "game.hpp"
+#include <random>
 
 Game::Game(int x, int y, std::string title) {
     sf::RenderWindow window(sf::VideoMode(x, y), title);
-    
-    Renderer renderer(&window, &entities);
 
-    GameLoop(&renderer, &window);
+    Renderer renderer(&window);
+    Controller controller;
+
+    GameLoop(&renderer, &controller, &window);
+    
 }
 
 Game::~Game() {
@@ -22,7 +25,7 @@ Game::~Game() {
     }
 }
 
-void Game::GameLoop(Renderer* renderer, sf::RenderWindow* window) {
+void Game::GameLoop(Renderer* renderer, Controller* controller, sf::RenderWindow* window) {
     while(window->isOpen()) {
         
         sf::Event event;
@@ -32,7 +35,10 @@ void Game::GameLoop(Renderer* renderer, sf::RenderWindow* window) {
                 window->close();
         }
         
-        renderer->Render();
+        entities.push_back(new Player());
+        
+        controller->Update(&entities);
+        renderer->Render(&entities);
     }
     
     //delete renderer;

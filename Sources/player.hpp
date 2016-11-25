@@ -9,6 +9,7 @@ public:
     Player(int _size, int _x, int _y, sf::Color _color);
 
     bool Intersects(int _x, int _y);
+    void Update();
 };
 
 #endif

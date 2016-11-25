@@ -1,8 +1,8 @@
 /**
    player.cpp
    
-   @author 
-   @version 
+   @author Marcus Östling
+   @version 0
    */
 
 #include "player.hpp"
@@ -36,3 +36,7 @@ bool Player::Intersects(int _x, int _y) {
         }
         return false;
     }
+
+void Player::Update() {
+    
+}

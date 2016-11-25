@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "entity.hpp"
+#include "controller.hpp"
 #include "renderer.hpp"
 
 class Game {
@@ -13,7 +14,7 @@ private:
 public:
     Game(int x, int y, std::string title);
     virtual ~Game();
-    void GameLoop(Renderer* renderer, sf::RenderWindow* window);
+    void GameLoop(Renderer* renderer, Controller* controller, sf::RenderWindow* window);
 };
 
 #endif

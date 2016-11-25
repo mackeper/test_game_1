@@ -8,13 +8,12 @@
 class Renderer {
 private:
     sf::RenderWindow* window;
-    std::vector<Entity*>* entities;
 
     sf::Color background;
     
 public:
-    Renderer(sf::RenderWindow* _window, std::vector<Entity*>* _entities);
-    void Render();
+    Renderer(sf::RenderWindow* _window);
+    void Render(std::vector<Entity*>* _entities);
 };
 
 #endif

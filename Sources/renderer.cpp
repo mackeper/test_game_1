@@ -7,18 +7,17 @@
 
 #include "renderer.hpp"
 
-Renderer::Renderer(sf::RenderWindow* _window, std::vector<Entity*>* _entities) {
+Renderer::Renderer(sf::RenderWindow* _window) {
     window = _window;
-    entities = _entities;
 
     background = sf::Color::Black;
 }
 
-void Renderer::Render() {
+void Renderer::Render(std::vector<Entity*>* entities) {
     window->clear(background);
 
     for(Entity* e : *entities) {
-        window->draw(*e->getShape());
+        window->draw(*e->GetShape());
     }
 
     window->display();
