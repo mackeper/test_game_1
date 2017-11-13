@@ -34,9 +34,14 @@ void Game::GameLoop(Renderer* renderer, Controller* controller, sf::RenderWindow
         {
             if (event.type == sf::Event::Closed) {
                 window->close();
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+                player->Up();
             } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-                std::cerr << "right" << std::endl;
                 player->Right();
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+                player->Down();
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+                player->Left();
             }
         }
         
