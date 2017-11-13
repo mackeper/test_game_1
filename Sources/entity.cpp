@@ -7,6 +7,13 @@
 
 #include "entity.hpp"
 
+Entity::Entity(int _size, int _x, int _y, int _speed) {
+    size = _size;
+    x = _x;
+    y = _y;
+    speed = _speed;
+}
+
 Entity::~Entity() {
     delete shape;
 }
@@ -24,17 +31,17 @@ int Entity::GetY() {
 }
 
 void Entity::Up() {
-    y -= speedY;
+    y -= speed;
 }
 
 void Entity::Down() {
-    y += speedY;
+    y += speed;
 }
 
 void Entity::Left() {
-    x -= speedX;
+    x -= speed;
 }
 
 void Entity::Right() {
-    x += speedX;
+    x += speed;
 }

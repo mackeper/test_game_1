@@ -3,11 +3,11 @@
    
    @author Marcus Östling 
    @version 0
-   */
+*/
 
 #include "player.hpp"
 #include "game.hpp"
-#include <random>
+#include <iostream>
 
 Game::Game(int x, int y, std::string title) {
     sf::RenderWindow window(sf::VideoMode(x, y), title);
@@ -16,7 +16,6 @@ Game::Game(int x, int y, std::string title) {
     Controller controller;
 
     GameLoop(&renderer, &controller, &window);
-    
 }
 
 Game::~Game() {
@@ -26,21 +25,24 @@ Game::~Game() {
 }
 
 void Game::GameLoop(Renderer* renderer, Controller* controller, sf::RenderWindow* window) {
+    Entity* player = new Player(30,10,10,1,sf::Color::Red);
+    entities.push_back(player);
     while(window->isOpen()) {
         
         sf::Event event;
         while (window->pollEvent(event))
         {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
                 window->close();
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+                std::cerr << "right" << std::endl;
+                player->Right();
+            }
         }
-        
-        entities.push_back(new Player());
         
         controller->Update(&entities);
         renderer->Render(&entities);
     }
     
-    //delete renderer;
-    //delete window;
+    delete player;
 }

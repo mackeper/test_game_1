@@ -5,8 +5,8 @@
 
 class Player : public Entity {
 public:
-    Player();
-    Player(int _size, int _x, int _y, sf::Color _color);
+    Player(int _size, int _x, int _y, int _speed, sf::Color _color);
+    virtual ~Player();
 
     bool Intersects(int _x, int _y);
     void Update();

@@ -7,27 +7,18 @@
 
 #include "player.hpp"
 
-Player::Player() {
-    x = 0;
-    y = 0;
-    size = 30;
-    color = sf::Color::Red;
-
-    shape = new sf::CircleShape(size, 3);
-    shape->setPosition(x,y);
-    shape->setFillColor(color);
-}
-
-Player::Player(int _size, int _x, int _y, sf::Color _color) {
-        size = _size;
-        x = _x;
-        y = _y;
+Player::Player(int _size, int _x, int _y, int _speed, sf::Color _color) :
+    Entity(_size,_x,_y,_speed) {
         color = _color;
 
-        shape = new sf::CircleShape(size);
+        shape = new sf::RectangleShape(sf::Vector2f(size,size));
         shape->setPosition(x,y);
         shape->setFillColor(color);
     }
+
+Player::~Player() {
+    delete shape;
+}
 
 bool Player::Intersects(int _x, int _y) {
         if(x <= _x && _x <= x + size &&
@@ -38,5 +29,5 @@ bool Player::Intersects(int _x, int _y) {
     }
 
 void Player::Update() {
-    
+    shape->setPosition(x,y);
 }
