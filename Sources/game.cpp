@@ -34,13 +34,17 @@ void Game::GameLoop(Renderer* renderer, Controller* controller, sf::RenderWindow
         {
             if (event.type == sf::Event::Closed) {
                 window->close();
-            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
                 player->Up();
-            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
                 player->Right();
-            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
                 player->Down();
-            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
                 player->Left();
             }
         }
