@@ -6,11 +6,13 @@
 class Entity {
 private:
 protected:
-    int size, x, y, velocityX, velocityY, speed;
+    int size;
+    double x, y, speed;
+    sf::Vector2f velocity;
     sf::Color color;
     sf::Shape *shape;
 public:
-    Entity(int _size, int _x, int _y, int _speed);
+    Entity(int _size, double _x, double _y, double _speed);
     virtual ~Entity();
     virtual bool Intersects(int _x, int _y)=0;
     virtual void Update()=0;

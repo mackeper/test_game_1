@@ -7,11 +7,13 @@
 
 #include "entity.hpp"
 
-Entity::Entity(int _size, int _x, int _y, int _speed) {
+Entity::Entity(int _size, double _x, double _y, double _speed) {
     size = _size;
     x = _x;
     y = _y;
     speed = _speed;
+    velocity.x = 0;
+    velocity.y = 0;
 }
 
 Entity::~Entity() {
@@ -28,6 +30,10 @@ int Entity::GetX() {
 
 int Entity::GetY() {
         return y;
+}
+
+double sigmoid(int x) {
+    return 0.0; 
 }
 
 void Entity::Up() {

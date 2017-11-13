@@ -7,7 +7,7 @@
 
 #include "player.hpp"
 
-Player::Player(int _size, int _x, int _y, int _speed, sf::Color _color) :
+Player::Player(int _size, double _x, double _y, double _speed, sf::Color _color) :
     Entity(_size,_x,_y,_speed) {
         color = _color;
 
@@ -29,5 +29,5 @@ bool Player::Intersects(int _x, int _y) {
     }
 
 void Player::Update() {
-    shape->setPosition(x,y);
+    shape->setPosition((int) x, (int) y);
 }
