@@ -8,9 +8,12 @@ private:
 protected:
     int size;
     double x, y, speed;
+    bool up, down, left, right;
     sf::Vector2f velocity;
     sf::Color color;
     sf::Shape *shape;
+
+    void FalseMovement();
 public:
     Entity(int _size, double _x, double _y, double _speed);
     virtual ~Entity();

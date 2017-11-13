@@ -37,17 +37,29 @@ double sigmoid(int x) {
 }
 
 void Entity::Up() {
-    y -= speed;
+    up = true;
 }
 
 void Entity::Down() {
-    y += speed;
+    down = true;
 }
 
 void Entity::Left() {
-    x -= speed;
+    left = true;;
 }
 
 void Entity::Right() {
-    x += speed;
+    right = true;
+}
+
+void Entity::FalseMovement() {
+    up = false;
+    down = false;
+    right = false;
+    left = false;
+}
+
+void Entity::Update() {
+    shape->setPosition((int) x, (int) y);
+    FalseMovement();
 }
